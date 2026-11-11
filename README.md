@@ -1,6 +1,5 @@
-# TCRCupid
+# TCRCupid: generalizable sequence-to-function learning decodes antigen specificity of T-cell receptors
 
-Code and evaluation resources for *TCRCupid: generalizable sequence-to-function learning decodes antigen specificity of T-cell receptors*.
 
 ![TCRCupid framework (Fig. 1)](assets/figure1.png)
 
