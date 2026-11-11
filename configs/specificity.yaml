@@ -1,0 +1,47 @@
+model:
+  d_model: 512
+  n_heads: 8
+  dropout: 0.1
+  antigen_backbone_name: esm2_150M
+  mhc_backbone_name: esm2_150M
+  freeze_antigen_backbone: false
+  freeze_mhc_backbone: false
+  freeze_antigen_bottom_k: 20
+  freeze_mhc_bottom_k: 20
+  pmhc_inner_cross_layers: 1
+  pmhc_inner_cross_bidirectional: false
+  pmhc_token_fcn_hidden_mult: 4
+  pmhc_backbone_dtype: bfloat16
+  tcr_vocab_size: 23
+  tcr_max_compartment_pos: 100
+  tcr_n_compartments: 8
+  tcr_encoder_layers: 4
+  tcr_encoder_nhead: 8
+  tcr_encoder_ff: 2048
+  tcr_encoder_dropout: 0.1
+  tcr_stack_type: sceptr_hybrid
+  tcr_finetune_last_only: false
+  freeze_tcr_encoder_layers: 0
+  freeze_tcr_embedder: false
+  cross_layers: 4
+  cross_mode: bidirectional
+  cross_ffn_mult: 4
+  use_chain_bias: false
+  fuse_mode: concat_diff_mul
+  pool_mode: mean
+  head_hidden_dims: [2048, 512]
+  head_dropout: 0.1
+train:
+  stage: specificity_finetune
+  batch_size: 128
+  amp: true
+  seed: 42
+lengths:
+  peptide: 15
+  mhc_pseudo: 40
+  cdr: 20
+  chain_cdr_concat: 48
+  tcr_tokens: 96
+  cdr1_budget: 7
+  cdr2_budget: 8
+  cdr3_budget: 20
